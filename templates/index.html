@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght,HEXP@160..700,22.3&display=swap" rel="stylesheet">
+    <!-- MDB -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css" rel="stylesheet" />
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
+
+    <!-- MDB -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <title>{% block title %}{% endblock %}</title>
+
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent shadow-none p-2">
+        <div class="container">
+            
+            <!-- logo -->
+            <a class="navbar-brand fs-4" href="{% url 'home' %}">News_API</a>
+            <!--  -->
+            <!-- <a class="navbar-brand fs-4" href="{% url 'home' %}">Admin</a> -->
+            <!--  -->
+
+
+            <!-- toggle-button -->
+            <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- sidebar -->
+            <div class="sidebar offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel1">
+
+                <!-- sidebar header -->
+                <div class="offcanvas-header text-white border-bottom">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel1">Rahul</h5>
+
+                    <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas"
+                        aria-label="Close"></button>
+
+                </div>
+
+                <!-- sidebar body -->
+                <div class="offcanvas-body d-flex flex-column p-4 p-lg-0 flex-lg-row">
+                    <ul class="navbar-nav justify-content-center align-items-center fs-5 flex-grow-1 pe-3">
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" aria-current="page" href="{% url 'home' %}">Blog</a>
+                        </li>
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+                        </li>
+
+                        <li class="nav-item mx-2">
+                            <a class="nav-link" href="{% url 'about' %}">About</a>
+                        </li>
+                        
+                        <!--  -->
+                      
+                        <!--  -->
+                    
+                    </ul>
+
+                    <!-- github -->
+                    <div class="d-flex flex-column justify-content-center align-item-center gap-3">
+                        <a href="https://github.com/rahulsrajput/" target="_blank"><img
+                                src="{% static 'image/github.1024x994.png' %}" alt="" class="img-fluid logo"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="container p-2 mt-5">
+        {% block content %}
+        {% endblock %}
+    </section>
+
+
+    
+</body>
+
+</html>

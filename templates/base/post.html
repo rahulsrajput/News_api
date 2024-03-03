@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}{{object.title}}{% endblock %}
+{% block content %}
+
+<div class="mt-2">
+    <img src="{{object.image}}" alt="">
+</div>
+<div class="text-white mt-4">
+    <span>{{object.author}}</span>
+</div>
+<div class="mt-4 text-white">
+    <span>📆 {{object.date}}</span>
+</div>
+
+<article class="article text-white mt-5">
+    <h1 class="text-white" >{{object.title}}</h1>
+
+    <div class="my-5">
+        <p>{{object.desc}}</p>
+        <a href="{{object.url}}" target="_blank" class="btn">Read More</a>
+        <a href="{% url 'home' %}" class="btn">Back</a>
+    </div>
+</article>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}NeWs_ApI{% endblock %}
+
+{% block content %}
+
+<div class="main">
+    <div class="author text-white">
+        <h1 class="author_heading">Rahul Rajput</h1>
+        <p class="author_body">Web developer and content creator</p>
+    </div>
+
+    <!-- <img src="{% static 'image/hero-image.webp' %}" alt="" class="hero-image" width="987" height="528"> -->
+
+
+
+    <section class="article text-white" id="post">
+
+
+
+        <h2 class="article_heading">Latest Posts</h2>
+
+        <div class="rounded mt-4">
+
+            <!-- Search Bar -->
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="search" class="form-control rounded border-0" style="margin-right: 20px;"
+                    placeholder="Search Category Like Sports, By Default Business" name="category" />
+            </form>
+
+
+            <!-- Category Tags -->
+            <form action="" method="post">
+                {% csrf_token %}
+                <input type="submit" name="category" value="Sports" class="btn btn-sm">
+                <input type="submit" name="category" value="Health" class="btn btn-sm">
+                <input type="submit" name="category" value="General" class="btn btn-sm">
+                <input type="submit" name="category" value="Technology" class="btn btn-sm">
+                <input type="submit" name="category" value="science" class="btn btn-sm">
+                <input type="submit" name="category" value="entertainment" class="btn btn-sm">
+            </form>
+        </div>
+
+
+        <!-- Articles -->
+        <ul class="article_ul mt-4">
+            <!--  -->
+            {% if page_obj %}
+            <span class="text-bg-danger rounded w-50 text-center">Category: {{category}}</span>
+
+
+            {% for i in page_obj %}
+            <li>
+                <a href="{% url 'post' i.id %}">
+                    <span>{{i.title}}</span>
+                    <span class="article-list_date">{{i.publishedAt}}</span>
+                </a>
+            </li>
+            {% endfor %}
+
+            {% else %}
+            <h3>No Result Found</h3>
+            {% endif %}
+            <!--  -->
+
+
+
+        </ul>
+
+        <!-- Pagination Not working for now -->
+        {% if page_obj.has_previous %}
+        <a href="?page={{page_obj.previous_page_number}}" class="pagination">&lt; View Older Posts</a>
+        {% endif %}
+
+        {% if page_obj.has_next %}
+        <a href="?page={{page_obj.next_page_number}}" class="pagination">View Newer Posts &gt;</a>
+        {% endif %}
+
+    </section>
+
+</div>
+{% endblock %}
