@@ -26,9 +26,7 @@ SECRET_KEY = 'django-insecure-7+zoklvtz(usg_awnf-_fw2j7pe52ilg!hfq^8_z+un7=ny49m
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ["https://web-production-d9e1.up.railway.app/"]
-CSRF_ALLOWED_ORIGINS = ["https://web-production-d9e1.up.railway.app/"]
-CORS_ORIGINS_WHITELIST = ["https://web-production-d9e1.up.railway.app/"]
+
 
 # Application definition
 
@@ -54,6 +52,8 @@ MIDDLEWARE = [
 
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
+CSRF_TRUSTED_ORIGINS = ["https://web-production-d9e1.up.railway.app"]
 
 ROOT_URLCONF = 'news_api.urls'
 
