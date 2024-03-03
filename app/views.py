@@ -19,7 +19,7 @@ def home(request):
         if request.method == 'POST':
             category = request.POST['category']
         else:
-            category = 'business'
+            category = request.GET.get('category','business')
 
 
         base_url = f'https://newsapi.org/v2/top-headlines?country=in&category={category}&apiKey={api_key}'
