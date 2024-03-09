@@ -53,7 +53,8 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
-CSRF_TRUSTED_ORIGINS = ["https://news-app-api.up.railway.app/"]
+CSRF_TRUSTED_ORIGINS = ["https://news-app-api.up.railway.app"]
+
 
 ROOT_URLCONF = 'news_api.urls'
 
